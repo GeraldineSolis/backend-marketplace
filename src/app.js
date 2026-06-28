@@ -8,7 +8,7 @@ const app = express();
 
 // Configurar CORS
 const corsOrigins = process.env.CORS_ORIGIN
-    ? process.env.CORS_ORIGIN.split(',')
+    ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim().replace(/\/$/, ''))
     : '*';
 
 const corsOptions = {
